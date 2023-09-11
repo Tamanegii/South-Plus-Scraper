@@ -8,7 +8,7 @@ headers = {
     'User-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.54',
 }
 cookies = {
-    'eb9e6_winduser': '———YOUR OWN CODE',
+    'eb9e6_winduser': 'YOUR OWN CODE',
 
 }
 
@@ -26,7 +26,7 @@ def delete_small_files(folder_path):
         for file_name in files:
             file_path = os.path.join(root, file_name)
             file_size = os.path.getsize(file_path)
-            if file_size < 50000:  # 文件大小小于50KB
+            if file_size < 50000:
                 os.remove(file_path)
 
 ss1 = requests.Session()
