@@ -3,33 +3,21 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse, urljoin
 
-
 web_url="https://www.spring-plus.net/"
 headers = {
     'User-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.54',
 }
 cookies = {
     'eb9e6_winduser': 'YOUE COOKIE',
-
 }
 save_folder = "YOUR SAVE FOLDER"
 
 def check_string(string):
     banned_words = ["face", "masha", "home", "logo", "segucrwj","none.gif",".php","kong.png","post.png","reply.png","mobile"]
-
     for word in banned_words:
         if word in string:
             return False
-
     return True
-
-def delete_small_files(folder_path):
-    for root, dirs, files in os.walk(folder_path):
-        for file_name in files:
-            file_path = os.path.join(root, file_name)
-            file_size = os.path.getsize(file_path)
-            if file_size < 50000:  # 文件大小小于50KB
-                os.remove(file_path)
 
 def find_url(tid):
     ss1 = requests.Session()
@@ -86,4 +74,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-#delete_small_files(save_folder)
